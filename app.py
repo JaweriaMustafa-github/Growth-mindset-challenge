@@ -10,7 +10,7 @@ st.title("🚀Data Sweeper🧹💾")
 st.write("Effortlessly convert CSV & Excel files with my built-in data cleaning and stunning visualizations!⬇️📊✨")
 
 # Theme Selector
-theme = st.sidebar.selectbox("Select Theme", ["Light Mode", "Dark Mode", "Gray-Cyan Gradient"])
+theme = st.sidebar.selectbox("Select Theme", ["Light Mode", "Dark Mode", "Golden-Yellow-->Cyan Gradient"])
 
 # Apply custom CSS based on selected theme
 if theme == "Dark Mode":
@@ -25,13 +25,13 @@ if theme == "Dark Mode":
         """,
         unsafe_allow_html=True
     )
-elif theme == "Gray-Cyan Gradient":
+elif theme == "Golden-Yellow-->Cyan Gradient":
     st.markdown(
         """
         <style>
             .stApp {
                 background: linear-gradient(90deg,rgb(226, 212, 11), #00bcd4);
-                color: white;
+                color: black;
             }
         </style>
         """,
@@ -127,7 +127,7 @@ if uploaded_files:
         conversion_type = st.radio(f"Convert {file.name} to:", ["CSV","Excel"], key=file.name)
         if st.button(f"Convert {file.name}"):
             buffer = BytesIO()
-            
+
             if conversion_type == "CSV":
               df.to_csv(buffer, index=False)
               file_name = file.name.replace(file_ext , ".csv")
@@ -143,7 +143,7 @@ if uploaded_files:
             st.download_button(
                 label=f"⬇️ Download {file.name} as {conversion_type}",
                 data=buffer, 
-                filename = file_name,
+                file_name = file_name,
                 mime=mime_type
             )
 
